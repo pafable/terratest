@@ -17,3 +17,7 @@ resource "docker_container" "ghost_container" {
         docker_image.ghostie,
     ]
 }
+
+output "container_name" {
+    value = "docker_container.ghost_container.name"
+}
