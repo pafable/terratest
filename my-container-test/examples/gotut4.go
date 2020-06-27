@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type cat struct {
+type car struct {
 	gas_pedal      uint16
 	brake_pedal    uint16
 	steering_wheel int16
@@ -17,5 +17,5 @@ func main() {
 		top_speed_kmh:  225.0,
 	}
 
-	fmt.Println(a_car.gas_pedal)
+	fmt.Println("Gas pedal:", a_car.gas_pedal, "| Brake:", a_car.brake_pedal)
 }
