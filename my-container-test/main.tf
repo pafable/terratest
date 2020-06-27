@@ -19,5 +19,5 @@ resource "docker_container" "ghost_container" {
 }
 
 output "container_name" {
-    value = "docker_container.ghost_container.name"
+    value = docker_container.ghost_container.name
 }
