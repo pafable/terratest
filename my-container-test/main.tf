@@ -3,7 +3,7 @@ provider "docker" {
   host = "tcp://localhost:2375"
 
 #   MacOS
-# host = "unix:///var/run/docker.sock1"
+# host = "unix:///var/run/docker.sock"
 }
 
 resource "docker_image" "ghostie" {
