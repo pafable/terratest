@@ -18,6 +18,6 @@ func TestTerraformDocker(t *testing.T) {
 	// executes terraform init and apply to check containers
 	terraform.InitAndApply(t, terraformOptions)
 
-	output := terraform.Output(t, terraformOptions, "resourceName")
-	assert.Equal(t, "Hello, world!", output)
+	output := terraform.Output(t, terraformOptions, "container_name")
+	assert.Equal(t, "ghost-cont-01", output)
 }

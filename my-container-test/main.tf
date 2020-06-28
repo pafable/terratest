@@ -1,5 +1,9 @@
 provider "docker" {
-  host = "unix:///var/run/docker.sock"
+#   Windows
+  host = "tcp://localhost:2375"
+
+#   MacOS
+# host = "unix:///var/run/docker.sock"
 }
 
 resource "docker_image" "ghostie" {
