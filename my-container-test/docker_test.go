@@ -25,11 +25,12 @@ func TestTerraformDocker(t *testing.T) {
 	fmt.Println("Sleeping for 10 seconds...")
 	time.Sleep(10 * time.Second)
 
+	// makes an http request to the docker container
 	resp, err := http.Get("http://localhost")
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(resp.StatusCode)
+	fmt.Println("STATUS CODE:", resp.StatusCode)
 
 	assert.Equal(t, 200, resp.StatusCode)
 }
