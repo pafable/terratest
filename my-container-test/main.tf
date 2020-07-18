@@ -14,12 +14,15 @@ resource "docker_container" "blog_container" {
     name = "cont-01"
     image = docker_image.blog_image.latest
     ports {
-        internal = terraform.workspace == "prod" ? "2368" : "8080"
+        internal = terraform.workspace == "prod" ? "2368" : "80"
         external = 80
     }
     depends_on = [
         docker_image.blog_image,
     ]
+}
+output "environment" {
+    value = terraform.workspace
 }
 
 output "docker_image_name" {
