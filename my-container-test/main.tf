@@ -6,22 +6,22 @@ provider "docker" {
 # host = "unix:///var/run/docker.sock"
 }
 
-resource "docker_image" "ghostie" {
-    name = "ghost:latest"
+resource "docker_image" "blog_image" {
+    name = terraform.workspace == "prod" ? "ghost:latest" : "wordpress:latest"
 }
 
-resource "docker_container" "ghost_container" {
-    name = "ghost-cont-01"
-    image = "${docker_image.ghostie.latest}"
+resource "docker_container" "blog_container" {
+    name = "cont-01"
+    image = docker_image.blog_image.latest
     ports {
-        internal = 2368
+        internal = terraform.workspace == "prod" ? "2368" : "8080"
         external = 80
     }
     depends_on = [
-        docker_image.ghostie,
+        docker_image.blog_image,
     ]
 }
 
-output "container_name" {
-    value = docker_container.ghost_container.name
+output "docker_image_name" {
+    value = docker_image.blog_image.name
 }
