@@ -22,8 +22,8 @@ func TestTerraformDocker(t *testing.T) {
 
 	// executes terraform init and apply to check containers
 	terraform.InitAndApply(t, terraformOptions)
-	fmt.Println("Sleeping for 10 seconds...")
-	time.Sleep(10 * time.Second)
+	fmt.Println("Sleeping for 20 seconds...")
+	time.Sleep(20 * time.Second)
 
 	// makes an http request to the docker container
 	resp, err := http.Get("http://localhost")

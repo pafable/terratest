@@ -1,9 +1,9 @@
 provider "docker" {
 #   Windows
-  host = "tcp://localhost:2375"
+#   host = "tcp://localhost:2375"
 
 #   MacOS
-# host = "unix:///var/run/docker.sock"
+  host = "unix:///var/run/docker.sock"
 }
 
 resource "docker_image" "blog_image" {
